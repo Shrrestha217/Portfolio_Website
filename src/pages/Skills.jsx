@@ -75,7 +75,7 @@ const Skills = ({ onScrollToProject }) => {
                 ))}
             </div>
 
-            <div className="mt-6 flex flex-col items-center group">
+            <div className="mt-12 flex flex-col items-center group">
                 <button onClick={onScrollToProject}
                     className="bg-gradient-to-l from-[#1dbce3] to-[#040d5ae6] py-3 px-6 rounded font-bold text-white 
                         hover:scale-110 transition-transform">
