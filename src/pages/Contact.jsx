@@ -3,7 +3,7 @@ import React from 'react';
 const ContactMe = () => {
     return (
         <section id="contact"
-            className="bg-white dark:bg-[#111] text-[#0d3b66] dark:text-white px-4 pt-28 transition-colors duration-300" >
+            className="bg-white dark:bg-[#111] text-[#0d3b66] dark:text-white px-4 pt-36 transition-colors duration-300" >
             <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
                 <div className="w-full flex justify-center">
                     <img src="/contact.png" alt="Contact"
