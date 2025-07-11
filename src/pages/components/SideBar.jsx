@@ -45,12 +45,12 @@ const SideBar = () => {
     return (
         <>
             {sidebarOpen && (
-                <div className="fixed inset-0 bg-[#565454] backdrop-blur-sm z-30 transition-opacity duration-300" />
+                <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-30 transition-opacity duration-300" />
             )}
 
             <aside
                 ref={sidebarRef}
-                className={`fixed right-0 top-12 h-[calc(100vh-48px)] w-64 bg-blue-300/30 dark:bg-black/30 backdrop-blur-lg p-4 z-40 transform duration-300 ease-in-out ${sidebarOpen ? 'translate-x-0 pointer-events-auto' : 'translate-x-full pointer-events-none'
+                className={`fixed right-0 top-12 h-[calc(100vh-48px)] w-64 bg-blue-300/30 dark:bg-[#9a9898] backdrop-blur-lg p-4 z-40 transform duration-300 ease-in-out ${sidebarOpen ? 'translate-x-0 pointer-events-auto' : 'translate-x-full pointer-events-none'
                     }`}
             >
                 <div className="flex flex-col justify-center items-center h-full">
