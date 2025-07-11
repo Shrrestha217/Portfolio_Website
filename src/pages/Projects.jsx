@@ -31,7 +31,7 @@ const projects = [
 
 const Projects = ({ onScrollToCertificate }) => {
     return (
-        <section id="projects" className="bg-white dark:bg-[#111] text-[#0d3b66] dark:text-white py-20 px-4 transition-colors duration-300">
+        <section id="projects" className="bg-white dark:bg-[#111] text-[#0d3b66] dark:text-white pb-20 pt-28 px-4 transition-colors duration-300">
             <div className="max-w-6xl mx-auto text-center mb-16">
                 <h2 className="text-3xl md:text-5xl font-bold tracking-wide">
                     <span className="inline-block underline underline-offset-8 decoration-blue-600 dark:decoration-[#1dbce3]">
