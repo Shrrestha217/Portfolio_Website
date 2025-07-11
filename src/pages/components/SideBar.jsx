@@ -45,7 +45,7 @@ const SideBar = () => {
     return (
         <>
             {sidebarOpen && (
-                <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-30 transition-opacity duration-300" />
+                <div className="fixed inset-0 bg-[#565454] backdrop-blur-sm z-30 transition-opacity duration-300" />
             )}
 
             <aside
