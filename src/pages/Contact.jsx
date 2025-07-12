@@ -1,6 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const ContactMe = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+    });
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const toEmail = 'shrresthadeysd@gmail.com';
+        const subject = encodeURIComponent(formData.subject);
+        const body = encodeURIComponent(
+            `Hi, my name is ${formData.name}.\n\n${formData.message}\n\nYou can contact me at: ${formData.email}`
+        );
+
+        const mailtoLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${toEmail}&su=${subject}&body=${body}`;
+        window.open(mailtoLink, '_blank');
+    };
+
     return (
         <section
             id="contact"
@@ -25,19 +52,37 @@ const ContactMe = () => {
                         Got a project or collaboration in mind? Just say hello!
                     </p>
 
-                    <form className="space-y-[2.5vh]">
-                        {['Name', 'Email', 'Subject'].map((placeholder, idx) => (
-                            <input
-                                key={idx}
-                                type={placeholder === 'Email' ? 'email' : 'text'}
-                                placeholder={placeholder}
-                                className="w-full bg-blue-100/40 dark:bg-[#1a1a1a] border border-blue-200 dark:border-white/10 p-[2vh] rounded-md text-[1.6vh] text-blue-900 dark:text-white placeholder:text-blue-600 dark:placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-[#1dbce3] transition"
-                            />
-                        ))}
-
+                    <form className="space-y-[2.5vh]" onSubmit={handleSubmit}>
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            className="w-full bg-blue-100/40 dark:bg-[#1a1a1a] border border-blue-200 dark:border-white/10 p-[2vh] rounded-md text-[1.6vh] text-blue-900 dark:text-white placeholder:text-blue-600 dark:placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-[#1dbce3] transition"
+                        />
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            className="w-full bg-blue-100/40 dark:bg-[#1a1a1a] border border-blue-200 dark:border-white/10 p-[2vh] rounded-md text-[1.6vh] text-blue-900 dark:text-white placeholder:text-blue-600 dark:placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-[#1dbce3] transition"
+                        />
+                        <input
+                            type="text"
+                            name="subject"
+                            placeholder="Subject"
+                            value={formData.subject}
+                            onChange={handleChange}
+                            className="w-full bg-blue-100/40 dark:bg-[#1a1a1a] border border-blue-200 dark:border-white/10 p-[2vh] rounded-md text-[1.6vh] text-blue-900 dark:text-white placeholder:text-blue-600 dark:placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-[#1dbce3] transition"
+                        />
                         <textarea
                             rows="5"
+                            name="message"
                             placeholder="Message"
+                            value={formData.message}
+                            onChange={handleChange}
                             className="w-full bg-blue-100/40 dark:bg-[#1a1a1a] border border-blue-200 dark:border-white/10 p-[2vh] rounded-md text-[1.6vh] text-blue-900 dark:text-white placeholder:text-blue-600 dark:placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-[#1dbce3] transition"
                         />
 

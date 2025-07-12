@@ -60,7 +60,7 @@ const Education = ({ onScrollToSkills }) => {
                     <img
                         src="./edu.png"
                         alt="Education Visual"
-                        className="w-full max-w-[95%] max-h-[75vh] object-contain rounded-md shadow-lg"
+                        className="w-full max-w-[95%] max-h-[75vh] object-contain"
                     />
                 </div>
             </div>
