@@ -16,7 +16,7 @@ const Navbar = () => {
                 <div className="flex items-center gap-[2vw]">
                     {/* Dark Mode Toggle */}
                     <label
-                        className="relative inline-flex items-center w-[5vw] min-w-[56px] h-[3.5vh] min-h-[28px] cursor-pointer"
+                        className="relative inline-flex items-center w-[5.7vw] min-w-[56px] h-[3.5vh] min-h-[28px] cursor-pointer"
                         title="Toggle Dark Mode"
                     >
                         <input
