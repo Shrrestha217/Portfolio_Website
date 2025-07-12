@@ -9,7 +9,7 @@ const Navbar = () => {
             <div className="max-w-[90vw] mx-auto h-full px-[2vw] flex items-center justify-between">
                 {/* Logo */}
                 <div className="text-white text-[2vw] font-bold drop-shadow-lg flex items-center">
-                    <img className="w-[4vw] h-[4vw] min-w-[32px] min-h-[32px]" src="./name-logo.png" alt="Logo" />
+                    <img className="w-[3vw] h-[3vw] min-w-[32px] min-h-[32px]" src="./name-logo.png" alt="Logo" />
                 </div>
 
                 {/* Right-side Controls */}
