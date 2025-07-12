@@ -137,23 +137,23 @@ const HomePage = () => {
                 </section>
 
                 {/* Other Sections */}
-                <section ref={educationRef} className="h-screen flex items-center justify-center dark:bg-[#111] dark:text-white">
+                <section ref={educationRef}>
                     <Education onScrollToSkills={() => scrollToRef(skillsRef)} />
                 </section>
 
-                <section ref={skillsRef} className="dark:bg-[#111] dark:text-white">
+                <section ref={skillsRef}>
                     <Skills onScrollToProject={() => scrollToRef(projectRef)} />
                 </section>
 
-                <section ref={projectRef} className="dark:bg-[#111] dark:text-white">
+                <section ref={projectRef}>
                     <Projects onScrollToCertificate={() => scrollToRef(certRef)} />
                 </section>
 
-                <section ref={certRef} className="dark:bg-[#111] dark:text-white">
+                <section ref={certRef}>
                     <Certificate onScrollToContact={() => scrollToRef(contRef)} />
                 </section>
 
-                <section ref={contRef} className="dark:bg-[#111] dark:text-white">
+                <section ref={contRef}>
                     <Contact />
                 </section>
             </div>
