@@ -58,7 +58,7 @@ const SkillCard = ({ title, items }) => (
 const Skills = ({ onScrollToProject }) => {
     return (
         <section className="bg-white dark:bg-[#111] py-[6vh] text-[#0d3b66] dark:text-white flex flex-col items-center justify-center transition-colors duration-300">
-            <div className="max-w-[90vw] mx-auto text-center mb-[4.5vh] mt-[4.5vh]">
+            <div className="max-w-[90vw] mx-auto text-center mb-[5vh] mt-[5vh]">
                 <h2 className="text-[3.5vh] md:text-[5vh] font-bold tracking-wide">
                     <span className="inline-block underline underline-offset-[1.2vh] decoration-blue-600 dark:decoration-[#1dbce3]">
                         SKILLS
@@ -75,7 +75,7 @@ const Skills = ({ onScrollToProject }) => {
                 ))}
             </div>
 
-            <div className="mt-[10vh] flex flex-col items-center group">
+            <div className="mt-[7vh] flex flex-col items-center group">
                 <button onClick={onScrollToProject}
                     className="bg-gradient-to-l from-[#1dbce3] to-[#040d5ae6] py-[2vh] px-[3vw] rounded font-bold text-white 
                         hover:scale-110 transition-transform">
