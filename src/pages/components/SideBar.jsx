@@ -14,12 +14,12 @@ const SideBar = () => {
     };
 
     const menu = [
-        { name: 'Home', ref: homeRef, icon: <House className="h-6 w-6" /> },
-        { name: 'Education', ref: educationRef, icon: <GraduationCap className="h-6 w-6" /> },
-        { name: 'Skills', ref: skillsRef, icon: <Layers className="h-6 w-6" /> },
-        { name: 'Projects', ref: projectRef, icon: <FolderGit className="h-6 w-6" /> },
-        { name: 'Certificate', ref: certRef, icon: <Award className="h-6 w-6" /> },
-        { name: 'Contact', ref: contRef, icon: <Mail className="h-6 w-6" /> },
+        { name: 'Home', ref: homeRef, icon: <House className="w-[1.8vw] h-[1.8vw] min-w-[20px] min-h-[20px]" /> },
+        { name: 'Education', ref: educationRef, icon: <GraduationCap className="w-[1.8vw] h-[1.8vw] min-w-[20px] min-h-[20px]" /> },
+        { name: 'Skills', ref: skillsRef, icon: <Layers className="w-[1.8vw] h-[1.8vw] min-w-[20px] min-h-[20px]" /> },
+        { name: 'Projects', ref: projectRef, icon: <FolderGit className="w-[1.8vw] h-[1.8vw] min-w-[20px] min-h-[20px]" /> },
+        { name: 'Certificate', ref: certRef, icon: <Award className="w-[1.8vw] h-[1.8vw] min-w-[20px] min-h-[20px]" /> },
+        { name: 'Contact', ref: contRef, icon: <Mail className="w-[1.8vw] h-[1.8vw] min-w-[20px] min-h-[20px]" /> },
     ];
 
     useEffect(() => {
@@ -50,19 +50,20 @@ const SideBar = () => {
 
             <aside
                 ref={sidebarRef}
-                className={`fixed right-0 top-12 h-[calc(100vh-48px)] w-64 bg-blue-300/30 dark:bg-[#4e4b4b] backdrop-blur-lg p-4 z-40 transform duration-300 ease-in-out ${sidebarOpen ? 'translate-x-0 pointer-events-auto' : 'translate-x-full pointer-events-none'
-                    }`}
+                className={`fixed right-0 top-[6vh] h-[94vh] w-[20vw] min-w-[220px] bg-blue-300/30 dark:bg-black/30 backdrop-blur-lg p-[2vh] z-40 transform duration-300 ease-in-out ${
+                    sidebarOpen ? 'translate-x-0 pointer-events-auto' : 'translate-x-full pointer-events-none'
+                }`}
             >
                 <div className="flex flex-col justify-center items-center h-full">
-                    <ul className="space-y-12 w-full text-white">
+                    <ul className="space-y-[5vh] w-full text-white">
                         {menu.map(({ name, ref, icon }) => (
                             <li key={name}>
                                 <button
                                     onClick={() => scrollToSection(ref)}
-                                    className="w-full flex items-center gap-3 border border-white rounded px-12 py-2 hover:bg-white/20 transition"
+                                    className="w-full flex items-center gap-[1.5vw] border border-white rounded px-[3vw] py-[1.5vh] hover:bg-white/20 transition"
                                 >
                                     <span>{icon}</span>
-                                    <span>{name}</span>
+                                    <span className="text-[1.2vw] min-w-[60px]">{name}</span>
                                 </button>
                             </li>
                         ))}

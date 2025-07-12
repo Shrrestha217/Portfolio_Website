@@ -6,7 +6,7 @@ import { useLayout } from '../context/LayoutContext';
 
 const MatterBackground = () => {
     const sceneRef = useRef(null);
-    const { darkMode } = useLayout(); // Get dark mode from context
+    const { darkMode } = useLayout();
 
     useEffect(() => {
         Matter.use('matter-attractors');
@@ -23,7 +23,7 @@ const MatterBackground = () => {
 
         const render = Render.create({
             element: sceneRef.current,
-            engine: engine,
+            engine,
             options: {
                 width,
                 height,
@@ -54,31 +54,24 @@ const MatterBackground = () => {
             const size = Common.random(10, 40);
             const isCircle = Common.random() > 0.5;
 
-            let color;
-            if (darkMode) {
-                const grey = Math.floor(Common.random(30, 100));
-                color = `rgb(${grey}, ${grey}, ${grey})`; 
-            } else {
-                const r = Math.floor(Common.random(0, 30));
-                const g = Math.floor(Common.random(170, 230));
-                const b = Math.floor(Common.random(220, 255));
-                color = `rgb(${r}, ${g}, ${b})`;
-            }
+            const color = darkMode
+                ? (() => {
+                    const grey = Math.floor(Common.random(30, 100));
+                    return `rgb(${grey}, ${grey}, ${grey})`;
+                })()
+                : (() => {
+                    const r = Math.floor(Common.random(0, 30));
+                    const g = Math.floor(Common.random(170, 230));
+                    const b = Math.floor(Common.random(220, 255));
+                    return `rgb(${r}, ${g}, ${b})`;
+                })();
 
             const shape = isCircle
                 ? Bodies.circle(x, y, size, {
-                    render: {
-                        fillStyle: color,
-                        strokeStyle: color,
-                        lineWidth: 1,
-                    },
+                    render: { fillStyle: color, strokeStyle: color, lineWidth: 1 },
                 })
                 : Bodies.polygon(x, y, Math.floor(Common.random(3, 6)), size, {
-                    render: {
-                        fillStyle: color,
-                        strokeStyle: color,
-                        lineWidth: 1,
-                    },
+                    render: { fillStyle: color, strokeStyle: color, lineWidth: 1 },
                 });
 
             shape.plugin = {
@@ -92,6 +85,7 @@ const MatterBackground = () => {
         }
 
         const mousePosition = { x: width / 2, y: height / 2 };
+
         const handleMouseMove = (e) => {
             mousePosition.x = e.clientX;
             mousePosition.y = e.clientY;
@@ -132,7 +126,7 @@ const MatterBackground = () => {
             render.canvas.remove();
             render.textures = {};
         };
-    }, [darkMode]); // Re-run when theme changes
+    }, [darkMode]);
 
     return (
         <div
@@ -141,8 +135,8 @@ const MatterBackground = () => {
                 position: 'fixed',
                 top: 0,
                 left: 0,
-                width: '100%',
-                height: '100%',
+                width: '100vw',
+                height: '100vh',
                 zIndex: 0,
                 pointerEvents: 'none',
                 overflow: 'hidden',
