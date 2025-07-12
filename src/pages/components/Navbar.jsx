@@ -9,14 +9,14 @@ const Navbar = () => {
             <div className="max-w-[90vw] mx-auto h-full px-[2vw] flex items-center justify-between">
                 {/* Logo */}
                 <div className="text-white text-[2vw] font-bold drop-shadow-lg flex items-center">
-                    <img className="w-[3vw] h-[3vw] min-w-[32px] min-h-[32px]" src="./name-logo.png" alt="Logo" />
+                    <img className="w-[2.5vw] h-[2.5vw] min-w-[32px] min-h-[32px]" src="./name-logo.png" alt="Logo" />
                 </div>
 
                 {/* Right-side Controls */}
                 <div className="flex items-center gap-[2vw]">
                     {/* Dark Mode Toggle */}
                     <label
-                        className="relative inline-flex items-center w-[7vw] min-w-[56px] h-[3.5vh] min-h-[28px] cursor-pointer"
+                        className="relative inline-flex items-center w-[5vw] min-w-[56px] h-[3.5vh] min-h-[28px] cursor-pointer"
                         title="Toggle Dark Mode"
                     >
                         <input
