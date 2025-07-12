@@ -36,7 +36,7 @@ const Certificate = ({ onScrollToContact }) => {
         setActiveIndex((prev) => (prev - 1 + certificates.length) % certificates.length);
 
     return (
-        <section id="certificates" className="bg-white dark:bg-[#111] text-[#0d3b66] dark:text-white py-[14vh] px-[2vw] relative transition-colors duration-300">
+        <section id="certificates" className="bg-white dark:bg-[#111] text-[#0d3b66] dark:text-white py-[10vh] px-[2vw] relative transition-colors duration-300">
             <div className="max-w-[90vw] mx-auto text-center mb-[4vh]">
                 <h2 className="text-[4vh] md:text-[5vh] font-bold tracking-wide">
                     <span className="underline underline-offset-[1vh] decoration-blue-600 dark:decoration-[#1dbce3]">
