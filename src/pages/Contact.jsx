@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Footer from './components/Footer';
 
 const ContactMe = () => {
     const [formData, setFormData] = useState({
@@ -31,7 +32,7 @@ const ContactMe = () => {
     return (
         <section
             id="contact"
-            className="bg-white dark:bg-[#111] text-[#0d3b66] dark:text-white px-[2vw] pt-[10vh] transition-colors duration-300"
+            className="bg-white dark:bg-[#111] text-[#0d3b66] dark:text-white px-[2vw] pt-[8vh] transition-colors duration-300"
         >
             <div className="max-w-[90vw] mx-auto grid md:grid-cols-2 gap-[5vw] items-center">
                 {/* Left Side - Image */}
@@ -94,6 +95,9 @@ const ContactMe = () => {
                         </button>
                     </form>
                 </div>
+            </div>
+            <div className='mt-5'>
+                <Footer/>
             </div>
         </section>
     );

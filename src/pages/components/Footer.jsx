@@ -3,7 +3,7 @@ import { FaGithub, FaLinkedin, FaWhatsapp, FaXTwitter } from 'react-icons/fa6'
 
 const Footer = () => {
     return (
-        <footer className="mt-[5vh] border-t border-blue-200 dark:border-white/10 bg-white dark:bg-[#111]">
+        <footer className="border-t border-blue-200 dark:border-white/10 bg-white dark:bg-[#111]">
             <div className="w-full bg-gradient-to-l from-[#1dbce3] to-[#040d5ae6] dark:bg-none">
                 <div className="w-[90vw] max-w-[90vw] mx-auto px-[3vw] py-[4vh]">
 

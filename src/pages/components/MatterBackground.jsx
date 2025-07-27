@@ -48,7 +48,15 @@ const MatterBackground = () => {
 
         World.add(world, attractiveBody);
 
-        for (let i = 0; i < 120; i++) {
+        // Adjust particle count based on screen size
+        const getParticleCount = () => {
+            const screenArea = width * height;
+            if (screenArea < 500000) return 60;    // Small screens
+            if (screenArea < 1000000) return 90;    // Medium screens
+            return 120;                             // Large screens
+        };
+
+        for (let i = 0; i < getParticleCount(); i++) {
             const x = Common.random(0, width);
             const y = Common.random(0, height);
             const size = Common.random(10, 40);
@@ -65,7 +73,7 @@ const MatterBackground = () => {
                     const b = Math.floor(Common.random(220, 255));
                     return `rgb(${r}, ${g}, ${b})`;
                 })();
-
+                
             const shape = isCircle
                 ? Bodies.circle(x, y, size, {
                     render: { fillStyle: color, strokeStyle: color, lineWidth: 1 },
@@ -84,21 +92,35 @@ const MatterBackground = () => {
             World.add(world, shape);
         }
 
-        const mousePosition = { x: width / 2, y: height / 2 };
+        const pointerPosition = { x: width / 2, y: height / 2 };
 
-        const handleMouseMove = (e) => {
-            mousePosition.x = e.clientX;
-            mousePosition.y = e.clientY;
+        // Handle touch events
+        const handleTouchMove = (e) => {
+            e.preventDefault();
+            if (e.touches && e.touches.length > 0) {
+                pointerPosition.x = e.touches[0].clientX;
+                pointerPosition.y = e.touches[0].clientY;
+            }
         };
+
+        // Handle mouse events
+        const handleMouseMove = (e) => {
+            pointerPosition.x = e.clientX;
+            pointerPosition.y = e.clientY;
+        };
+
+        // Add event listeners
         window.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener('touchmove', handleTouchMove, { passive: false });
 
         Events.on(engine, 'afterUpdate', () => {
             Body.translate(attractiveBody, {
-                x: (mousePosition.x - attractiveBody.position.x) * 0.2,
-                y: (mousePosition.y - attractiveBody.position.y) * 0.2,
+                x: (pointerPosition.x - attractiveBody.position.x) * 0.2,
+                y: (pointerPosition.y - attractiveBody.position.y) * 0.2,
             });
         });
 
+        // Device orientation handler
         const handleOrientation = (event) => {
             const { beta, gamma } = event;
             if (typeof beta === 'number' && typeof gamma === 'number') {
@@ -122,6 +144,7 @@ const MatterBackground = () => {
             World.clear(world);
             Engine.clear(engine);
             window.removeEventListener('mousemove', handleMouseMove);
+            window.removeEventListener('touchmove', handleTouchMove);
             window.removeEventListener('deviceorientation', handleOrientation);
             render.canvas.remove();
             render.textures = {};
@@ -140,6 +163,7 @@ const MatterBackground = () => {
                 zIndex: 0,
                 pointerEvents: 'none',
                 overflow: 'hidden',
+                touchAction: 'none' // Important for touch events
             }}
         />
     );

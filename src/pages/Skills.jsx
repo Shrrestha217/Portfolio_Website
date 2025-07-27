@@ -1,14 +1,14 @@
 import React from 'react';
 import {
     FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaJava,
-    FaPython, FaGithub, FaGitAlt, FaCode
+    FaPython, FaGithub, FaGitAlt
 } from 'react-icons/fa';
 import {
-    SiC, SiIntellijidea, SiJavascript, SiMongodb, SiMysql,
+    SiC, SiEclipseadoptium, SiIntellijidea, SiJavascript, SiMongodb, SiMysql,
     SiPostman, SiRedux, SiShadcnui, SiSpringboot, SiTailwindcss
 } from 'react-icons/si';
 import { VscVscode } from "react-icons/vsc";
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, EclipseIcon } from 'lucide-react';
 
 const skills = {
     Frontend: [
@@ -34,21 +34,23 @@ const skills = {
         { name: 'VS Code', icon: <VscVscode className="text-blue-600" /> },
         { name: 'IntelliJ Idea', icon: <SiIntellijidea className='text-pink-500' /> },
         { name: 'Postman', icon: <SiPostman className="text-orange-700" /> },
-        { name: 'GitHub', icon: <FaGithub className="text-black dark:text-white" /> }
+        { name: 'GitHub', icon: <FaGithub className="text-black dark:text-white" /> },
+        { name: 'Ecllipse', icon: <EclipseIcon className='text-purple-800'/>}
     ],
 };
 
 const SkillCard = ({ title, items }) => (
-    <div className="bg-blue-100/60 dark:bg-[#1a1a1a] rounded-xl p-[3vh] shadow-lg border border-blue-300 dark:border-white/10 backdrop-blur-sm hover:shadow-[0_0_20px_#1dbce3] transition hover:scale-[1.05]">
-        <h3 className="text-[2.2vh] font-semibold text-[#0d3b66] dark:text-white mb-[2vh]">{title}</h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-[1.6vh]">
+    <div className="bg-blue-100/60 dark:bg-[#1a1a1a] rounded-lg p-[2vw] shadow-md border border-blue-300 dark:border-white/10 backdrop-blur-sm text-center">
+        <h3 className="text-[4vw] md:text-[1.5vw] font-semibold text-[#0d3b66] dark:text-white mb-[1vh]">
+            {title}
+        </h3>
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-[1vw] justify-items-center">
             {items.map(({ name, icon }, i) => (
                 <div
                     key={i}
-                    className="flex items-center gap-[1vw] bg-blue-50 dark:bg-white/5 px-[1.5vw] py-[1.5vh] rounded shadow hover:shadow-[0_0_10px_#1dbce3] transition-transform duration-300 ease-in-out hover:scale-105"
-                >
-                    <span className="text-[2.2vh]">{icon}</span>
-                    <p className="text-[1.6vh] text-[#0d3b66] dark:text-white/80">{name}</p>
+                    className="flex items-center w-full gap-[1vw] px-[1vw] py-[0.8vh] text-[2.5vw] md:text-[1vw] bg-blue-50 dark:bg-white/5 rounded shadow hover:shadow-[0_0_1vw_#1dbce3] hover:scale-105 transition">
+                    <span className="text-[4vw] md:text-[1.5vw]">{icon}</span>
+                    <p className="hidden sm:inline-block text-[2.5vw] md:text-[1vw] text-[#0d3b66] dark:text-white/80">{name}</p>
                 </div>
             ))}
         </div>
@@ -57,33 +59,32 @@ const SkillCard = ({ title, items }) => (
 
 const Skills = ({ onScrollToProject }) => {
     return (
-        <section className="bg-white dark:bg-[#111] py-[6vh] text-[#0d3b66] dark:text-white flex flex-col items-center justify-center transition-colors duration-300">
-            <div className="max-w-[90vw] mx-auto text-center mb-[3vh] mt-[3vh]">
-                <h2 className="text-[3.5vh] md:text-[5vh] font-bold tracking-wide">
-                    <span className="inline-block underline underline-offset-[1.2vh] decoration-blue-600 dark:decoration-[#1dbce3]">
-                        SKILLS
-                    </span>
+        <section className="h-[100vh] overflow-y-auto bg-white dark:bg-[#111] py-[3vh] text-[#0d3b66] dark:text-white flex flex-col items-center transition-colors duration-300">
+            <div className="w-[92vw] max-w-[92vw] mx-auto text-center mb-[2vh]">
+                <h2 className="text-[6vw] md:text-[3vw] font-bold tracking-wide underline underline-offset-[0.5vw] decoration-blue-600 dark:decoration-[#1dbce3]">
+                    SKILLS
                 </h2>
-                <p className="text-blue-900/70 dark:text-white/70 text-[1.6vh] md:text-[2vh] mt-[1vh]">
-                    A collection of my technical skills and expertise honed through various projects and experiences
+                <p className="text-blue-900/70 dark:text-white/70 text-[2.8vw] md:text-[1.2vw] mt-[0.5vh] max-w-[80vw] mx-auto">
+                    A collection of my technical skills and expertise
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-[4vw] max-w-[90vw] mx-auto px-[2vw]">
+            <div className="w-full px-[2vw] grid grid-cols-1 md:grid-cols-2 gap-[2vw] overflow-auto">
                 {Object.entries(skills).map(([category, items]) => (
                     <SkillCard key={category} title={category} items={items} />
                 ))}
             </div>
 
-            <div className="mt-[7vh] flex flex-col items-center group">
-                <button onClick={onScrollToProject}
-                    className="bg-gradient-to-l from-[#1dbce3] to-[#040d5ae6] py-[2vh] px-[3vw] rounded font-bold text-white 
-                        hover:scale-110 transition-transform">
+            <div className="mt-auto pt-[2vh] flex flex-col items-center group">
+                <button
+                    onClick={onScrollToProject}
+                    className="bg-gradient-to-l from-[#1dbce3] to-[#040d5ae6] py-[0.8vh] px-[3vw] rounded font-bold text-white text-[2.8vw] md:text-[1vw] hover:scale-105 transition-transform"
+                >
                     Projects
                 </button>
                 <ArrowDown
-                    className="mt-[1vh] dark:text-white text-blue-900 transition-all duration-300 group-hover:translate-y-[1vh] group-hover:scale-110"
-                    size={24}
+                    className="mt-[0.5vh] dark:text-white text-blue-900 transition-all duration-300 group-hover:translate-y-[1vh]"
+                    size="4vw"
                 />
             </div>
         </section>

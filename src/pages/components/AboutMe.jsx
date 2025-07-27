@@ -7,25 +7,25 @@ const techTags = [
 
 const AboutMe = () => {
     return (
-        <div className="flex flex-col md:flex-row gap-[2vw] w-[90vw] max-w-[90vw] mx-auto bg-blue-50 dark:bg-[#1a1a1a] text-[#0d3b66] dark:text-white p-[2vw] rounded-[1vw] transition-colors duration-300">
+        <div className="flex flex-col md:flex-row gap-6 w-full h-full overflow-y-auto text-[#0d3b66] dark:text-white bg-blue-50 dark:bg-[#1a1a1a] rounded-[1vw]">
             {/* Text Section */}
-            <div className="flex-1 order-2 md:order-1">
-                <h2 className="text-[4vw] md:text-[3vw] font-semibold text-blue-600 dark:text-[#1dbce3] mb-[2vh]">
+            <div className="flex-1 order-2 md:order-1 p-5 overflow-y-auto">
+                <h2 className="text-[6vw] md:text-[2vw] font-semibold text-blue-600 dark:text-[#1dbce3] mb-4">
                     ABOUT ME
                 </h2>
 
-                <p className="text-[2.5vw] md:text-[2vw] mb-[3vh] leading-relaxed dark:text-white/70">
+                <p className="text-[3.5vw] md:text-[1.2vw] mb-4 leading-relaxed dark:text-white/70">
                     I'm Shrrestha Dey, a passionate Java and Front-end developer with a focus on building clean,
                     responsive, and user-centric interfaces. I love turning design ideas into reality using React,
                     JavaScript, HTML/CSS, and Java. I enjoy learning new technologies and working on meaningful projects.
                 </p>
 
                 {/* Tags */}
-                <div className="flex flex-wrap gap-[1vw] mb-[3vh]">
+                <div className="flex flex-wrap gap-2 mb-4">
                     {techTags.map((tag, index) => (
                         <span
                             key={index}
-                            className="dark:bg-[#929191] bg-[#c5dde7] text-blue-900 dark:text-gray-200 text-[2vw] md:text-[1.5vw] px-[1vw] py-[0.5vh] rounded-full"
+                            className="dark:bg-[#929191] bg-[#c5dde7] text-blue-900 dark:text-gray-200 text-[2.8vw] md:text-[0.9vw] px-[0.8vw] py-[0.4vh] rounded-full"
                         >
                             #{tag}
                         </span>
@@ -33,11 +33,11 @@ const AboutMe = () => {
                 </div>
 
                 {/* Frameworks */}
-                <h3 className="text-[3.5vw] md:text-[2.5vw] font-semibold text-blue-600 dark:text-cyan-300 mb-[1vh]">
+                <h3 className="text-[4vw] md:text-[1.5vw] font-semibold text-blue-600 dark:text-cyan-300 mb-2">
                     Frameworks
                 </h3>
 
-                <div className="flex items-center gap-[2vw] mt-[3vh]">
+                <div className="flex flex-wrap items-center gap-[2vw] mt-8">
                     {[
                         { src: './spring.jpg', label: 'Spring', bg: '#20d023' },
                         { src: './react.jpg', label: 'React', bg: '#06b6d4' },
@@ -45,13 +45,13 @@ const AboutMe = () => {
                         { src: './mysql.jpg', label: 'MySQL', bg: '#03263e' }
                     ].map(({ src, label, bg }, index) => (
                         <div key={index} className="relative group flex flex-col items-center">
-                            <img 
-                                src={src} 
-                                alt={label} 
-                                className="h-[5vh] object-contain" 
+                            <img
+                                src={src}
+                                alt={label}
+                                className="w-[6vh] h-[6vh] md:h-[4vh] object-contain"
                             />
                             <div
-                                className="absolute bottom-full mb-[1vh] px-[1vw] py-[0.5vh] text-[1.8vw] text-white rounded shadow-md left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition duration-200"
+                                className="absolute bottom-full mb-[1vh] px-[1vw] py-[0.5vh] text-[2.5vw] md:text-[0.9vw] text-white rounded shadow-md left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition duration-200"
                                 style={{ backgroundColor: bg }}
                             >
                                 {label}
@@ -62,11 +62,11 @@ const AboutMe = () => {
             </div>
 
             {/* Image Section */}
-            <div className="flex-1 order-1 md:order-2 flex items-center justify-center mb-[3vh] md:mb-0">
+            <div className="flex-1 order-1 md:order-2 flex items-center justify-center mb-4 md:mb-0">
                 <img
                     src="./comp.png"
                     alt="Developer Illustration"
-                    className="w-[60vw] md:w-[30vw] object-contain"
+                    className="w-[60vw] md:w-[26vw] max-h-[30vh] object-contain"
                 />
             </div>
         </div>
